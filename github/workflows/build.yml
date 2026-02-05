@@ -1,0 +1,22 @@
+# หมายเหตุ:ในไฟล์ yml แต่ละระดับจะเว้นวรรค 2 ช่อง
+name:  Flutter 
+
+on: 
+  # รันแอ็กชันนี้เมื่อคุณพุชไปยัง master 
+  push: 
+    branches: [ "master" ] 
+  # รันแอ็กชันนี้เมื่อมีการสร้าง PR กับ master 
+  pull_request: 
+    branches: [ "master" ] 
+
+jobs: 
+  flutter_job: 
+
+    # เครื่อง เราสามารถใช้ windows-latest หรือ ubuntu-latest ก็ได้
+    # เราเลือก macos-latest เพราะเราจะสร้างสำหรับ iOS ด้วย
+    runs-on:  macos-latest 
+
+    steps: 
+
+      # โคลนโปรเจ็กต์บนเครื่อง
+      -  uses:  actions/checkout@v4
